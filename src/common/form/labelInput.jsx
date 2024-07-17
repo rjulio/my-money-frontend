@@ -5,13 +5,13 @@ import Grid from '@/common/layout/grid';
 export default (props) => (
 	<Grid cols={ props.cols }>
 		<div className="form-group">
-			<label htmlFor={props.name} className="">{props.label}</label>
+			<label htmlFor={props.name}>{props.label}</label>
 			<input 
 				{ ...props.input } 
 				className="form-control" 
-				placeholder={props.placeholder} 
+				placeholder={ props.placeholder } 
 				readOnly={ props.readOnly }
-				type={props.type} />
+				type={ props.type } />
 		</div>
 	</Grid>
 );

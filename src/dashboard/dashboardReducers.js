@@ -6,10 +6,9 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-	switch (action.type) {
-		case 'BILLING_SUMMARY_FETCH':
-			return { ...state, summary: action.payload.data }
-		default:
-			return state;
-	}
+	const dashboardObj = {
+		'BILLING_SUMMARY_FETCH': { ...state, summary: action.payload ? action.payload.data : {} }
+	};
+
+	return dashboardObj[action.type] || state;
 }

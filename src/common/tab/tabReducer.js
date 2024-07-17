@@ -4,12 +4,10 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, actions) => {
-	switch(actions.type) {
-		case 'TAB_SELECTED':
-			return { ...state, selected: actions.payload }
-		case 'TAB_SHOW':
-			return { ...state, visible: actions.payload }
-		default:
-			return state;
+	const actionsObj = {
+		'TAB_SELECTED': { ...state, selected: actions.payload },
+	 	'TAB_SHOW': { ...state, visible: actions.payload }
 	}
+
+	return actionsObj[actions.type] || state;
 }
