@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { selectTab, showTabs } from '../common/tab/tabActions';
-import { create, update, remove } from '@/billingCycle/billingCycleActions';
+import { init, create, update, remove } from '@/billingCycle/billingCycleActions';
 
 import ContentHeader from '@template/contentHeader';
 import Content from '@template/content';
@@ -19,8 +18,7 @@ import Form from '@/billingCycle/form';
 class BillingCycle extends Component {
 
 	componentWillMount() {
-		this.props.selectTab('tabList');
-		this.props.showTabs('tabList', 'tabCreate');
+		this.props.init();
 	};
 
 	render() {
@@ -66,5 +64,5 @@ class BillingCycle extends Component {
 	}
 }
 
-const mapDispatchToProps = (dipatch) => bindActionCreators({ selectTab, showTabs, create, update, remove }, dipatch);
+const mapDispatchToProps = (dipatch) => bindActionCreators({ init, create, update, remove }, dipatch);
 export default connect(null, mapDispatchToProps)(BillingCycle);
